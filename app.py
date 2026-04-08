@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from pydantic import BaseModel
 from grading import grade_question
-from pdf_extractor import extract_text_from_pdf
+from pdf_extractor import extract_text_from_pdf, extract_student_answer
 from fastapi.responses import JSONResponse
 import json
 
@@ -24,8 +24,7 @@ MARK_SCHEME = {
     ]
 }
 
-
-# Health check
+#check if API is running
 @app.get("/")
 def root():
     return {"message": "AI Grading API is running"}
@@ -38,7 +37,8 @@ async def grade_pdf(file: UploadFile = File(...)):
         pdf_bytes = await file.read()
 
         # Extract text
-        student_answer = extract_text_from_pdf(pdf_bytes)
+        full_text = extract_text_from_pdf(pdf_bytes)
+        student_answer = extract_student_answer(full_text)
 
         # Grade
         result = grade_question(student_answer, MARK_SCHEME)
