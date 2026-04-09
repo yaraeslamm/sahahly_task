@@ -99,7 +99,7 @@ POST /grade/pdf
 curl -X POST "http://127.0.0.1:8000/grade/pdf" \
   -F "file=@examples/student_answer.pdf"
 
-
+```
 ---
 
 ## Example Inputs & Outputs
