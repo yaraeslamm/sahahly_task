@@ -104,7 +104,7 @@ curl -X POST "http://127.0.0.1:8000/grade/pdf" \
 
 ## Example Inputs & Outputs
 
-### Example 1 — Incorrect Answer
+### Example 1 — Correct Answer
 [View PDF](./examples/student_answer2.pdf)
 
 Output:
@@ -135,7 +135,7 @@ Output:
 }
 ```
 
-### Example 3 — Mixed Answer
+### Example 3 — Partially Correct Answer
 [View PDF](./examples/student_answer3.pdf)
 
 Output:
