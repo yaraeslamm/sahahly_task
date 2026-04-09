@@ -6,11 +6,6 @@ from fastapi.responses import JSONResponse
 import json
 
 app = FastAPI(title="AI Grading API")
-class GradeResponse(BaseModel):
-    score: int
-    max_score: int
-    feedback: str
-    missing_points: list[str]
 
 # Hardcoded mark scheme example
 MARK_SCHEME = {
