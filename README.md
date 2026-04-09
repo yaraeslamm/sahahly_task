@@ -73,11 +73,31 @@ uvicorn app:app --reload
 
 ## API Usage
 
-### Endpoint:
-
-```
+### Endpoint
 POST /grade/pdf
-```
+
+### Input
+- Upload a PDF file using the `file` field (multipart/form-data)
+
+---
+
+### Testing
+
+#### Option 1 — Postman
+- Set method to `POST`
+- URL: `http://127.0.0.1:8000/grade/pdf`
+- Go to **Body → form-data**
+- Add key: `file` (type: File)
+- Upload a PDF from the `examples` folder
+- Send request
+
+---
+
+#### Option 2 — cURL
+
+```bash
+curl -X POST "http://127.0.0.1:8000/grade/pdf" \
+  -F "file=@examples/student_answer.pdf"
 
 
 ---
